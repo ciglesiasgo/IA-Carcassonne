@@ -283,15 +283,28 @@ $(function() {
     Tablero.colocarficha(nuevaficha,4,5);
     console.log("cierra claustro: ",Tablero.cierraClaustro(nuevaficha,1));
     console.log("PTS-  j1:",Obj[0].puntos," j2:",Obj[1].puntos," j3:",Obj[2].puntos," j4:",Obj[3].puntos); 
-
+*/
 
   // Prueba la lista de seguidores.
   Tablero.iniciar();
-	var nuevaficha = new ObjetoFicha(0,0,0,"Posada");
-	console.log("lista: ", Tablero.colocarseguidor(nuevaficha));
-	var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
-	console.log("lista: ", Tablero.colocarseguidor(nuevaficha));
+//	var nuevaficha = new ObjetoFicha(0,0,0,"Posada");
+//	console.log("lista: ", Tablero.colocarseguidor(nuevaficha));
+//	var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
+//	console.log("lista: ", Tablero.colocarseguidor(nuevaficha));
 
+	var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
+  var y=Tablero.colocarficha(nuevaficha,5,5);
+	y.seguidores.push({t:"Caballero",n:0,j:1,f:y});  //le metemos Caballero
+  var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad2l");	
+	nuevaficha.girar();	
+  Tablero.colocarficha(nuevaficha,5,4);
+	var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
+	nuevaficha.girar();	
+	nuevaficha.girar();	
+	nuevaficha.girar();	
+  Tablero.colocarficha(nuevaficha,4,4);
+	console.log("lista ciudad con caballero: ", Tablero.colocarseguidor(nuevaficha));
+/*
 	var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
   var x=Tablero.colocarficha(nuevaficha,5,5);
 	x.seguidores.push({t:"Ladron",n:4,j:1,f:x});  //le metemos ladron
@@ -302,6 +315,7 @@ $(function() {
   nuevaficha = new ObjetoFicha(0,0,0,"Tcruce");	
   Tablero.colocarficha(nuevaficha,5,4);
 	console.log("lista cruce con ladron arriba: ", Tablero.colocarseguidor(nuevaficha));
+
 
 
 

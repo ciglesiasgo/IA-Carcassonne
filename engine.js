@@ -216,7 +216,17 @@ var Tablero = new function(){
 				  'Ciudad1lcruce',
 				  'Tcruce',
 			];
+      var ciudadunlado = [
+          'Ciudad1l2crect', 
+          'Ciudadcurvder', 
+          'Ciudadcurvizq', 
+          'Ciudad1lcruce', 
+          'Ciudad1ll', // Aunque tenga dos lados con tierra, son cierra campos los dos lados
+          'Ciudad1l',
+          'Ciudadext' // Aunque tenga dos lados con tierra, son cierra campos los dos lados
+      ];
 
+// CAMINOS.
 				fichacamsig=Tablero.buscarxcoor(ficha.x,ficha.y-1); // ARRIBA
 				if (fichacamsig == undefined){tieneladron0 =[false,false]}
 				else if (fichacamsig.lleno){tieneladron0 = Tablero.cierraCamino(fichacamsig);}
@@ -227,19 +237,38 @@ var Tablero = new function(){
 				else if (fichacamsig.lleno){tieneladron1 = Tablero.cierraCamino(fichacamsig);}
 				else if (!fichacamsig.lleno){tieneladron1 =[false,false]}
 
-				fichacamsig=Tablero.buscarxcoor(ficha.x,ficha.y+1);
-
-				if (fichacamsig == undefined){tieneladron2 =[false,false]} //ABAJO
+				fichacamsig=Tablero.buscarxcoor(ficha.x,ficha.y+1);//ABAJO
+				if (fichacamsig == undefined){tieneladron2 =[false,false]} 
 				else if (fichacamsig.lleno){tieneladron2 = Tablero.cierraCamino(fichacamsig);}
 				else if (!fichacamsig.lleno){tieneladron2 =[false,false]}
 
-				fichacamsig=Tablero.buscarxcoor(ficha.x-1,ficha.y);
-				if (fichacamsig == undefined){tieneladron3 =[false,false]} //IZQUIERDA
+				fichacamsig=Tablero.buscarxcoor(ficha.x-1,ficha.y);	//IZQUIERDA
+				if (fichacamsig == undefined){tieneladron3 =[false,false]} 
 				else if (fichacamsig.lleno){tieneladron3 = Tablero.cierraCamino(fichacamsig);}
 				else if (!fichacamsig.lleno){tieneladron3 =[false,false]}
 
-		for (i=0;i<=8;i++){
+//CIUDADES.
+				fichatierra=Tablero.buscarxcoor(ficha.x,ficha.y-1); // ARRIBA		
+				if (fichatierra == undefined){tienecab0 =[false,false]}
+				else if (fichatierra.lleno){tienecab0 = Tablero.cierraCamino(fichatierra);}
+				else if (!fichatierra.lleno){tienecab0 =[false,false]}
 
+				fichatierra=Tablero.buscarxcoor(ficha.x+1,ficha.y); // DERECHA
+				if (fichatierra == undefined){tienecab1 =[false,false]}
+				else if (fichatierra.lleno){tienecab1 = Tablero.cierraCamino(fichatierra);}
+				else if (!fichatierra.lleno){tienecab1 =[false,false]}
+
+				fichatierra=Tablero.buscarxcoor(ficha.x,ficha.y+1);//ABAJO
+				if (fichatierra == undefined){tienecab2 =[false,false]} 
+				else if (fichatierra.lleno){tienecab2 = Tablero.cierraCamino(fichatierra);}
+				else if (!fichatierra.lleno){tienecab2 =[false,false]}
+
+				fichatierra=Tablero.buscarxcoor(ficha.x-1,ficha.y);	//IZQUIERDA
+				if (fichatierra == undefined){tienecab3 =[false,false]} 
+				else if (fichatierra.lleno){tienecab3 = Tablero.cierraCamino(fichatierra);}
+				else if (!fichatierra.lleno){tienecab3 =[false,false]}
+
+		for (i=0;i<=8;i++){
 			if (i==0){
 				
 				if(ficha.arriba == "Rue" ){
@@ -253,7 +282,14 @@ var Tablero = new function(){
 						}
 					
 				}else if(ficha.arriba == "Tierra"){
-					seguidor.push({t:"Caballero",n:i});			
+					if (ciudadunlado.indexOf(ficha.tipo) != -1){ // Si la ficha es una ciudad de un lado.
+						if (tienecab0[1] == false){seguidor.push({t:"Caballero",n:i});} 
+					}else{
+						if(tienecab0[1] == false && tienecab1[1] == false && tienecab2[1] == false && tienecab3[1] == false){
+							seguidor.push({t:"Caballero",n:i});
+						}			
+					}
+							
 				}else if(ficha.arriba == "Campo"){
 					seguidor.push({t:"Granjero",n:i});
 				}
@@ -279,7 +315,13 @@ var Tablero = new function(){
 						}				
 
 				}else if(ficha.derecha == "Tierra"){
-					seguidor.push({t:"Caballero",n:i});			
+					if (ciudadunlado.indexOf(ficha.tipo) != -1){ // Si la ficha es una ciudad de un lado.
+						if (tienecab1[1] == false){seguidor.push({t:"Caballero",n:i});} 
+					}else{
+						if(tienecab0[1] == false && tienecab1[1] == false && tienecab2[1] == false && tienecab3[1] == false){
+							seguidor.push({t:"Caballero",n:i});
+						}			
+					}	
 				}else if(ficha.derecha == "Campo"){
 					seguidor.push({t:"Granjero",n:i});
 				}
@@ -302,7 +344,13 @@ var Tablero = new function(){
 							}
 						}						
 				}else if(ficha.abajo == "Tierra"){
-					seguidor.push({t:"Caballero",n:i});			
+					if (ciudadunlado.indexOf(ficha.tipo) != -1){ // Si la ficha es una ciudad de un lado.
+						if (tienecab2[1] == false){seguidor.push({t:"Caballero",n:i});} 
+					}else{
+						if(tienecab0[1] == false && tienecab1[1] == false && tienecab2[1] == false && tienecab3[1] == false){
+							seguidor.push({t:"Caballero",n:i});
+						}			
+					}								
 				}else if(ficha.abajo == "Campo"){
 					seguidor.push({t:"Granjero",n:i});
 				}
@@ -323,7 +371,13 @@ var Tablero = new function(){
 							}
 						}				
 				}else if(ficha.izda == "Tierra"){
-					seguidor.push({t:"Caballero",n:i});			
+					if (ciudadunlado.indexOf(ficha.tipo) != -1){ // Si la ficha es una ciudad de un lado.
+						if (tienecab3[1] == false){seguidor.push({t:"Caballero",n:i});} 
+					}else{
+						if(tienecab0[1] == false && tienecab1[1] == false && tienecab2[1] == false && tienecab3[1] == false){
+							seguidor.push({t:"Caballero",n:i});
+						}			
+					}		
 				}else if(ficha.izda == "Campo"){
 					seguidor.push({t:"Granjero",n:i});
 				}
@@ -1292,6 +1346,130 @@ var Tablero = new function(){
 		Objugador.n_seguidores--;
 	}
 
+//Granja
+/*
+	this.puntosGranja = function(ficha){
+		var granjeros= [];
+		var fichas = [];
+		var granjero;
+		var fichaorig = ficha;
+
+		var granja = function(ficha){
+			fichas.push(ficha);
+//CAMPO
+			if(ficha.arriba== "Campo"){
+				ficha2=Tablero.buscarxcoor(ficha.x,ficha.y-1);
+				if(!(_.find(fichas ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}))){		
+					if (ficha2.lleno){
+						if (ficha2.derecha == "Rue" && ficha.izda == "Rue"){
+							granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")});   
+							if (granjero.n == 3 || granjero.n == 4 || granjero.n == 5){granjeros.push(granjero)}
+						}else if (ficha2.arriba == "Rue" && ficha.derecha == "Rue"){
+							granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")});   
+							if (granjero.n == 3 || granjero.n == 4 || granjero.n == 5 || granjero.n == 6 || granjero.n == 7){granjeros.push(granjero)}	
+							granja(ficha2);					
+						}else{
+							granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")}); 
+							if (granjero){granjeros.push(granjero)}
+							granja(ficha2);
+						}
+					}
+				}
+			}
+			if(ficha.izda== "Campo"){
+				ficha2=Tablero.buscarxcoor(ficha.x-1,ficha.y);
+				if(_.find(fichas ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)})){
+				}else{				
+					if (ficha2.lleno ){
+
+						if (ficha2.abajo == "Rue" && ficha.arriba == "Rue"){
+							granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")});   
+							if (granjero.n == 1 || granjero.n == 2 || granjero.n == 3){granjeros.push(granjero)}
+						}else if (ficha2.abajo == "Rue" && ficha.izda == "Rue"){
+							granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")});   
+							if (granjero.n == 7 || granjero.n == 0 || granjero.n == 1 || granjero.n == 2 || granjero.n == 3){granjeros.push(granjero)}	
+							granja(ficha2);					
+						}else{
+							granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")}); 
+							if (granjero){granjeros.push(granjero)}
+							granja(ficha2);
+						}
+					}
+				}
+			}
+			if(ficha.derecha== "Campo"){
+				ficha2=Tablero.buscarxcoor(ficha.x+1,ficha.y);
+				if(_.find(fichas ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)})){
+				}else{		
+					if (ficha2.lleno ){
+
+						if (ficha2.abajo == "Rue" && ficha.arriba == "Rue"){
+							granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")});   
+							if (granjero.n == 1 || granjero.n == 2 || granjero.n == 3){granjeros.push(granjero)}
+						}else if (ficha2.abajo == "Rue" && ficha.derecha == "Rue"){
+							granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")});   
+							if (granjero.n == 5 || granjero.n == 6 || granjero.n == 7 || granjero.n == 0 || granjero.n == 1){granjeros.push(granjero)}	
+							granja(ficha2);					
+						}else{
+							granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")}); 
+							if (granjero){granjeros.push(granjero)}
+							granja(ficha2);
+						}
+					}
+				}
+			}
+			if(ficha.abajo== "Campo"){
+				ficha2=Tablero.buscarxcoor(ficha.x,ficha.y+1);
+				if(_.find(fichas ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)})){
+				}else{
+					if (ficha2.lleno){
+
+							if (ficha2.derecha == "Rue" && ficha.izda == "Rue"){
+								granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")});   
+								if (granjero.n == 3 || granjero.n == 4 || granjero.n == 5){granjeros.push(granjero)}
+							}else if (ficha2.abajo == "Rue" && ficha.izda == "Rue"){
+								granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")});   
+								if (granjero.n == 7 || granjero.n == 0 || granjero.n == 1 || granjero.n == 2 || granjero.n == 3){granjeros.push(granjero)}	
+								granja(ficha2);					
+							}else{
+								granjero =_.find(ficha2.seguidores,function(obj){return (obj.t=="Granjero")}); 
+								if (granjero){granjeros.push(granjero)}
+								granja(ficha2);
+							}
+						}
+				}
+			}
+//TIERRA
+			if (ficha.arriba == "Tierra"){
+
+			}
+			if (ficha.izda == "Tierra"){
+
+			}
+			if (ficha.derecha == "Tierra"){
+
+			}
+			if(ficha.abajo == "Tierra"){
+		
+			}	
+//CARRETERA
+			if (ficha.arriba == "Rue"){
+
+			}
+			if (ficha.izda == "Rue"){
+
+			}
+			if (ficha.derecha == "Rue"){
+
+			}
+			if(ficha.abajo == "Rue"){
+		
+			}		
+		}
+
+
+	}	
+*/
 };
 
 var ObjetoJugador = function(user_id,nombre,edad,n_jugador){
