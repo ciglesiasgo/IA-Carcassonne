@@ -765,6 +765,7 @@ var Tablero = new function(){
 
         // Funcion cuando es solo un lado
         var f_unlado = function(ficha, puntos, seguidorCa){
+            var final = [];
             // Si tiene un escudo suma 1 punto extra
             if (escudo.indexOf(ficha.tipo) != -1){puntos++}
             puntos++;
@@ -800,7 +801,16 @@ var Tablero = new function(){
                     }
                     else if(ficha2.lleno && maslados.indexOf(ficha2.tipo) != -1){return f_maslados(ficha2, puntos, seguidorCa)}
                     // Cuando la siguiente ficha esta vacio, devolvemos false
-                    else if(!ficha2.lleno){return [false, puntos]}
+                    else if(!ficha2.lleno){
+                        if (seguidorCa.length > 0)
+                            final[1] = true;
+                        else
+                            final[1] = false;
+                        final[0] = false;
+                        final[2] = pasado;
+                        final[3] = puntos;
+                        return final;
+                    }
                 }
             }
 	        
@@ -820,7 +830,16 @@ var Tablero = new function(){
                         return f_unlado(ficha, puntos, seguidorCa);
                     }
                     else if(ficha2.lleno && maslados.indexOf(ficha2.tipo) != -1){return f_maslados(ficha2, puntos, seguidorCa)}
-                    else if(!ficha2.lleno){return [false, puntos]}
+                    else if(!ficha2.lleno){
+                        if (seguidorCa.length > 0)
+                            final[1] = true;
+                        else
+                            final[1] = false;
+                        final[0] = false;
+                        final[2] = pasado;
+                        final[3] = puntos;
+                        return final;
+                    }
                 }
             }
 	        
@@ -840,7 +859,16 @@ var Tablero = new function(){
                         return f_unlado(ficha, puntos, seguidorCa);
                     }
                     else if(ficha2.lleno && maslados.indexOf(ficha2.tipo) != -1){return f_maslados(ficha2, puntos, seguidorCa)}
-                    else if(!ficha2.lleno){return [false, puntos]}
+                    else if(!ficha2.lleno){
+                        if (seguidorCa.length > 0)
+                            final[1] = true;
+                        else
+                            final[1] = false;
+                        final[0] = false;
+                        final[2] = pasado;
+                        final[3] = puntos;
+                        return final;
+                    }
                 }
             }
 	        
@@ -860,7 +888,16 @@ var Tablero = new function(){
                         return f_unlado(ficha, puntos, seguidorCa);
                     }
                     else if(ficha2.lleno && maslados.indexOf(ficha2.tipo) != -1){return f_maslados(ficha2, puntos, seguidorCa)}
-                    else if(!ficha2.lleno){return [false, puntos]}
+                    else if(!ficha2.lleno){
+                        if (seguidorCa.length > 0)
+                            final[1] = true;
+                        else
+                            final[1] = false;
+                        final[0] = false;
+                        final[2] = pasado;
+                        final[3] = puntos;
+                        return final;
+                    }
                 }
             }
 
@@ -878,6 +915,7 @@ var Tablero = new function(){
     
         // Funcion para mas lados
         var f_maslados = function(ficha, puntos, seguidorCa){
+            var final = [];
             // Si tiene un escudo suma 1 punto extra
             if (escudo.indexOf(ficha.tipo) != -1){puntos++}
             puntos++;
@@ -915,7 +953,16 @@ var Tablero = new function(){
                     // Cuando la siguiente ficha tiene mas de un lado
                     else if (ficha2.lleno && maslados.indexOf(ficha2.tipo) != -1){return f_maslados(ficha2, puntos, seguidorCa)}
                     // Cuando la siguiente ficha esta vacion, devolvemos false
-                    else if (!ficha2.lleno){return [false, puntos]}
+                    else if(!ficha2.lleno){
+                        if (seguidorCa.length > 0)
+                            final[1] = true;
+                        else
+                            final[1] = false;
+                        final[0] = false;
+                        final[2] = pasado;
+                        final[3] = puntos;
+                        return final;
+                    }
                 }
             }
             if (ficha.abajo == 'Tierra'){
@@ -933,7 +980,16 @@ var Tablero = new function(){
                         pasado.push({x:ficha2.x, y:ficha2.y});
                         return f_unlado(ficha, puntos, seguidorCa)}
                     else if (ficha2.lleno && maslados.indexOf(ficha2.tipo) != -1){return f_maslados(ficha2, puntos, seguidorCa)}
-                    else if (!ficha2.lleno){return [false, puntos]}
+                    else if(!ficha2.lleno){
+                        if (seguidorCa.length > 0)
+                            final[1] = true;
+                        else
+                            final[1] = false;
+                        final[0] = false;
+                        final[2] = pasado;
+                        final[3] = puntos;
+                        return final;
+                    }
                 }
             }
             if (ficha.izda == 'Tierra'){
@@ -951,7 +1007,16 @@ var Tablero = new function(){
                         pasado.push({x:ficha2.x, y:ficha2.y});
                         return f_unlado(ficha, puntos, seguidorCa)}
                     else if (ficha2.lleno && maslados.indexOf(ficha2.tipo) != -1){return f_maslados(ficha2, puntos, seguidorCa)}
-                    else if (!ficha2.lleno){return [false, puntos]}
+                    else if(!ficha2.lleno){
+                        if (seguidorCa.length > 0)
+                            final[1] = true;
+                        else
+                            final[1] = false;
+                        final[0] = false;
+                        final[2] = pasado;
+                        final[3] = puntos;
+                        return final;
+                    }
                 }
             }
             if (ficha.derecha == 'Tierra'){
@@ -969,7 +1034,16 @@ var Tablero = new function(){
                         pasado.push({x:ficha2.x, y:ficha2.y});
                         return f_unlado(ficha, puntos, seguidorCa)}
                     else if (ficha2.lleno && maslados.indexOf(ficha2.tipo) != -1){return f_maslados(ficha2, puntos, seguidorCa)}
-                    else if (!ficha2.lleno){return [false, puntos]}
+                    else if(!ficha2.lleno){
+                        if (seguidorCa.length > 0)
+                            final[1] = true;
+                        else
+                            final[1] = false;
+                        final[0] = false;
+                        final[2] = pasado;
+                        final[3] = puntos;
+                        return final;
+                    }
                 }
             }
             // Volver hacia atrás cuando no puedes segir adelante.
@@ -1091,8 +1165,12 @@ var Tablero = new function(){
             }
 
             if (((flag == 1) && (final1[0] == true)) || (flag == 2))
+                if (flag == 2)
+                    final1[1] = final1[3];
                 sumarPuntos(seguidor1, final1[1]);
             if (((flag == 1) && (final2[0] == true)) || (flag == 2))
+                if (flag == 2)
+                    final2[1] = final2[3];
                 sumarPuntos(seguidor2, final2[1]);
             // Si hay caballero en el lado [arriba o derecha]
             if (seguidor1.length > 0)
@@ -1103,7 +1181,7 @@ var Tablero = new function(){
             if (seguidor2.length > 0)
                 final2[1] = true;
             else
-                final2[2] = false;
+                final2[1] = false;
             final1[2] = pasado;
             final2[2] = pasado;
             // Final1 [arriba o derecha], Final2 [izquierda o abajo]
@@ -1112,17 +1190,22 @@ var Tablero = new function(){
         else if (unlado.indexOf(ficha.tipo) != -1){
             var final = f_unlado(ficha, 0, seguidor);
             if (((flag == 1) && (final[0] == true)) || (flag == 2))
+                // porque si no es cerrado devuelve [false, caballero, lista, puntos]
+                if (flag == 2)
+                    final[1] = final[3];
                 sumarPuntos(seguidor, final[1]);
             if (seguidor.length > 0)
                 final[1] = true;
             else
-                final[2] = false;
+                final[1] = false;
             final[2] = pasado;
             return final;
         }
         else if (maslados.indexOf(ficha.tipo) != -1){
             var final = f_maslados(ficha, 0, seguidor);
             if (((flag == 1) && (final[0] == true)) || (flag == 2))
+                if (flag == 2)
+                    final[1] = final[3];
                 sumarPuntos(seguidor, final[1]);
             if (seguidor.length > 0)
                 final[1] = true;
