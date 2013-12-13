@@ -502,6 +502,57 @@ $(function() {
   console.log(robar);
   console.log(ColocarFicha(12,robar[0],{x:6,y:5},3));
 */
+	Tablero.iniciar();
+		var nuevaficha = new ObjetoFicha(0,0,0,"Posada");
+ 	  Tablero.colocarficha(nuevaficha,2,2);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
+		x = Tablero.colocarficha(nuevaficha,2,3); 
+		x.seguidores.push({t:"Granjero",n:0,j:2,f:x});  //le metemos granjero
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
+		x = Tablero.colocarficha(nuevaficha,2,4); 
+		x.seguidores.push({t:"Granjero",n:0,j:2,f:x});  //le metemos granjero
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
+    nuevaficha.girar();
+    nuevaficha.girar();
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,2,2);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,3,1);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Catedral");
+ 	  Tablero.colocarficha(nuevaficha,3,2);		
+		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
+    nuevaficha.girar();
+    nuevaficha.girar();
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,3,3);		
+		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
+    nuevaficha.girar();
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,4,2);	
+		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
+ 	  Tablero.colocarficha(nuevaficha,4,4);
+		var nuevaficha = new ObjetoFicha(0,0,0,"CiudadE");
+ 	  Tablero.colocarficha(nuevaficha,4,3);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,5,3);	
+		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
+    nuevaficha.girar();
+    nuevaficha.girar();
+    nuevaficha.girar();	
+ 	  Tablero.colocarficha(nuevaficha,6,3);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,7,3);			
+		var nuevaficha = new ObjetoFicha(0,0,0,"Catedral");
+ 	  var x=Tablero.colocarficha(nuevaficha,3,4);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Catedral");
+ 	  var x=Tablero.colocarficha(nuevaficha,5,4);
+		x.seguidores.push({t:"Granjero",n:0,j:2,f:x});  //le metemos granjero
+		console.log(Tablero.puntosGranja(nuevaficha));	
+
+
 });
 
 
