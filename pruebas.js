@@ -291,7 +291,11 @@ $(function() {
 //	console.log("lista: ", Tablero.colocarseguidor(nuevaficha));
 //	var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
 //	console.log("lista: ", Tablero.colocarseguidor(nuevaficha));
-
+        Tablero.listaJugadores.push(new ObjetoJugador(123,"Paco",23));
+        Tablero.listaJugadores.push(new ObjetoJugador(12,"Pepe",88));
+        Tablero.listaJugadores.push(new ObjetoJugador(45,"Mengano",34));
+        Tablero.listaJugadores.push(new ObjetoJugador(88,"Fulano",17));
+        Tablero.listaJugadores.push(new ObjetoJugador(128,"Zutano",12));
 	var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
   var y=Tablero.colocarficha(nuevaficha,5,5);
 	y.seguidores.push({t:"Caballero",n:0,j:1,f:y});  //le metemos Caballero
@@ -550,7 +554,7 @@ $(function() {
 		var nuevaficha = new ObjetoFicha(0,0,0,"Catedral");
  	  var x=Tablero.colocarficha(nuevaficha,5,4);
 		x.seguidores.push({t:"Granjero",n:0,j:2,f:x});  //le metemos granjero
-		console.log(Tablero.puntosGranja(nuevaficha));	
+		console.log(puntosGranja(nuevaficha));	
 
 
 });
