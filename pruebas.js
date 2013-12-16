@@ -283,7 +283,7 @@ $(function() {
     Tablero.colocarficha(nuevaficha,4,5);
     console.log("cierra claustro: ",Tablero.cierraClaustro(nuevaficha,1));
     console.log("PTS-  j1:",Obj[0].puntos," j2:",Obj[1].puntos," j3:",Obj[2].puntos," j4:",Obj[3].puntos); 
-*/
+
 
   // Prueba la lista de seguidores.
   Tablero.iniciar();
@@ -426,16 +426,14 @@ $(function() {
  var InicioJuego=function(){       
 
        Tablero.iniciar();
+       
 	     /*
 	      Meteor.subscribe("partidas",id_partida);
 	      Jugadores= Partidas.find();
         */
         //creamos la lista de jugadores
-        Tablero.listaJugadores.push(new ObjetoJugador(123,"Paco",23));
-        Tablero.listaJugadores.push(new ObjetoJugador(12,"Pepe",88));
-        Tablero.listaJugadores.push(new ObjetoJugador(45,"Mengano",34));
-        Tablero.listaJugadores.push(new ObjetoJugador(88,"Fulano",17));
-        Tablero.listaJugadores.push(new ObjetoJugador(128,"Zutano",12));
+        Tablero.listaJugadores.push(new ObjetoJugador(123,"Paco","14/11/1991"));
+	console.log('ll',Tablero.listaJugadores);
         
         //ordenamos a los jugadores por edad
         Tablero.listaJugadores=_.sortBy(Tablero.listaJugadores, function(jugador){ return jugador.edad; });
