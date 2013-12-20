@@ -152,13 +152,13 @@ var Tablero = new function(){
 				else if (this.totalFichas == 72) { var n_rand=17}
 				else {var n_rand = Math.floor(Math.random() *fichas.length);}
         var rand = fichas[n_rand];
-        console.log("ficha robada: ",rand);
-        console.log("numero de esa ficha: ",this.n_fichas[rand]);
+  //      console.log("ficha robada: ",rand);
+  //      console.log("numero de esa ficha: ",this.n_fichas[rand]);
         this.n_fichas[rand] = this.n_fichas[rand]-1;
 		if (this.n_fichas[rand] == 0){fichas.splice(n_rand,1)}
-        console.log("numero de esa ficha actual: ",this.n_fichas[rand]);
+  //      console.log("numero de esa ficha actual: ",this.n_fichas[rand]);
         this.totalFichas--;
-        console.log("Total de fichas: ",this.totalFichas);
+  //      console.log("Total de fichas: ",this.totalFichas);
         return rand;
     }
 

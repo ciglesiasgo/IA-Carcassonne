@@ -65,9 +65,9 @@ Tablero.cierraCastillo = function(ficha, flag){
             else if(a == 5)
                 j5++;
         }
-        console.log("j1: ",j1," j2: ",j2);
+//        console.log("j1: ",j1," j2: ",j2);
         var lista = [j1, j2, j3, j4, j5];
-        console.log("lista: ",lista);
+//        console.log("lista: ",lista);
         var grande = -1;
         for(j=0;j<5;j++){
             // Devuelve la posicion del que tiene mayor numero de caballeros
@@ -100,7 +100,7 @@ Tablero.cierraCastillo = function(ficha, flag){
                 Tablero.listaJugadores[num].puntos += puntos;
                 Tablero.listaJugadores[num].n_segidores++;
                 lista[num] = 0;
-                console.log("jugador: ", Tablero.listaJugadores[num].nombre, Tablero.listaJugadores[num].puntos);
+//                console.log("jugador: ", Tablero.listaJugadores[num].nombre, Tablero.listaJugadores[num].puntos);
             }
         }
     }
@@ -113,13 +113,13 @@ Tablero.cierraCastillo = function(ficha, flag){
         puntos++;
         // Guardamos la coordenada actual
         pasado.push({x:ficha.x, y:ficha.y});
-        console.log(ficha.tipo, ficha.x, ficha.y);
+//        console.log(ficha.tipo, ficha.x, ficha.y);
         // Mirar si en la ficha hay un caballero
         caballero = _.find(ficha.seguidores,function(obj){return (obj.t=="Caballero")});
         // Si hay caballero y esa ficha no esta en la lista de seguidores
         if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha)}) == undefined)){
             seguidorCa.push(caballero);
-            console.log("seguidorCa: ", seguidorCa);
+//            console.log("seguidorCa: ", seguidorCa);
         }
 
         if (ficha.arriba == "Tierra"){
@@ -128,13 +128,13 @@ Tablero.cierraCastillo = function(ficha, flag){
             // Cuando no esta en la lista de pasado
             if(_.find(pasado ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
             if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
-                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
+//                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
                     // Mirar si en la ficha hay un caballero
                     caballero = _.find(ficha2.seguidores,function(obj){return (obj.t=="Caballero")});
                     // Si hay caballero y esa ficha no esta en la lista de seguidores
                     if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha2)}) == undefined)){
                         seguidorCa.push(caballero);
-                        console.log("seguidorCa: ", seguidorCa);
+//                        console.log("seguidorCa: ", seguidorCa);
                     }
                     // Guardamos la siguiente ficha
                     pasado.push({x:ficha2.x, y:ficha2.y});
@@ -160,13 +160,13 @@ Tablero.cierraCastillo = function(ficha, flag){
         ficha2 = Tablero.buscarxcoor(ficha.x,ficha.y+1);
             if(_.find(pasado ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
             if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
-                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
+ //                   console.log(ficha2.tipo, ficha2.x, ficha2.y);
                     // Mirar si en la ficha hay un caballero
                     caballero = _.find(ficha2.seguidores,function(obj){return (obj.t=="Caballero")});
                     // Si hay caballero y esa ficha no esta en la lista de seguidores
                     if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha2)}) == undefined)){
                         seguidorCa.push(caballero);
-                        console.log("seguidorCa: ", seguidorCa);
+//                        console.log("seguidorCa: ", seguidorCa);
                     }
                     pasado.push({x:ficha2.x, y:ficha2.y});
                     return f_unlado(ficha, puntos, seguidorCa);
@@ -189,13 +189,13 @@ Tablero.cierraCastillo = function(ficha, flag){
         ficha2 = Tablero.buscarxcoor(ficha.x-1,ficha.y);
             if(_.find(pasado ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
             if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
-                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
+//                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
                     // Mirar si en la ficha hay un caballero
                     caballero = _.find(ficha2.seguidores,function(obj){return (obj.t=="Caballero")});
                     // Si hay caballero y esa ficha no esta en la lista de seguidores
                     if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha2)}) == undefined)){
                         seguidorCa.push(caballero);
-                        console.log("seguidorCa: ", seguidorCa);
+//                        console.log("seguidorCa: ", seguidorCa);
                     }
                     pasado.push({x:ficha2.x, y:ficha2.y});
                     return f_unlado(ficha, puntos, seguidorCa);
@@ -218,13 +218,13 @@ Tablero.cierraCastillo = function(ficha, flag){
         ficha2 = Tablero.buscarxcoor(ficha.x+1,ficha.y);
             if(_.find(pasado ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
             if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
-                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
+//                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
                     // Mirar si en la ficha hay un caballero
                     caballero = _.find(ficha2.seguidores,function(obj){return (obj.t=="Caballero")});
                     // Si hay caballero y esa ficha no esta en la lista de seguidores
                     if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha2)}) == undefined)){
                         seguidorCa.push(caballero);
-                        console.log("seguidorCa: ", seguidorCa);
+//                        console.log("seguidorCa: ", seguidorCa);
                     }
                     pasado.push({x:ficha2.x, y:ficha2.y});
                     return f_unlado(ficha, puntos, seguidorCa);
@@ -263,13 +263,13 @@ Tablero.cierraCastillo = function(ficha, flag){
         puntos++;
         // Guardamos la ficha actual a la lista pasada
         pasado.push({x:ficha.x, y:ficha.y});
-        console.log(ficha.tipo, ficha.x, ficha.y);
+//        console.log(ficha.tipo, ficha.x, ficha.y);
         // Mirar si en la ficha hay un caballero
         caballero = _.find(ficha.seguidores,function(obj){return (obj.t=="Caballero")});
         // Si hay caballero y esa ficha no esta en la lista de seguidores
         if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha)}) == undefined)){
             seguidorCa.push(caballero);
-            console.log("seguidorCa: ", seguidorCa);
+//            console.log("seguidorCa: ", seguidorCa);
         }
 
         if (ficha.arriba == 'Tierra'){
@@ -279,13 +279,13 @@ Tablero.cierraCastillo = function(ficha, flag){
             if(_.find(pasado ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
                 // cuando la siguiente ficha es un cierra castillo
                 if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
-                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
+//                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
                     // Mirar si en la ficha hay un caballero
                     caballero = _.find(ficha2.seguidores,function(obj){return (obj.t=="Caballero")});
                     // Si hay caballero y esa ficha no esta en la lista de seguidores
                     if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha2)}) == undefined)){
                         seguidorCa.push(caballero);
-                        console.log("seguidorCa: ", seguidorCa);
+//                        console.log("seguidorCa: ", seguidorCa);
                     }
                     // guardamos la ficha2 en la lista de pasado
                     pasado.push({x:ficha2.x, y:ficha2.y});
@@ -311,13 +311,13 @@ Tablero.cierraCastillo = function(ficha, flag){
             ficha2 = Tablero.buscarxcoor(ficha.x, ficha.y+1);
             if(_.find(pasado ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
                 if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
-                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
+//                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
                     // Mirar si en la ficha hay un caballero
                     caballero = _.find(ficha2.seguidores,function(obj){return (obj.t=="Caballero")});
                     // Si hay caballero y esa ficha no esta en la lista de seguidores
                     if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha2)}) == undefined)){
                         seguidorCa.push(caballero);
-                        console.log("seguidorCa: ", seguidorCa);
+//                        console.log("seguidorCa: ", seguidorCa);
                     }
                     pasado.push({x:ficha2.x, y:ficha2.y});
                     return f_unlado(ficha, puntos, seguidorCa)}
@@ -338,13 +338,13 @@ Tablero.cierraCastillo = function(ficha, flag){
             ficha2 = Tablero.buscarxcoor(ficha.x-1, ficha.y);
             if(_.find(pasado ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
                 if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
-                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
+//                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
                     // Mirar si en la ficha hay un caballero
                     caballero = _.find(ficha2.seguidores,function(obj){return (obj.t=="Caballero")});
                     // Si hay caballero y esa ficha no esta en la lista de seguidores
                     if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha2)}) == undefined)){
                         seguidorCa.push(caballero);
-                        console.log("seguidorCa: ", seguidorCa);
+//                        console.log("seguidorCa: ", seguidorCa);
                     }
                     pasado.push({x:ficha2.x, y:ficha2.y});
                     return f_unlado(ficha, puntos, seguidorCa)}
@@ -365,13 +365,13 @@ Tablero.cierraCastillo = function(ficha, flag){
             ficha2 = Tablero.buscarxcoor(ficha.x+1, ficha.y);
             if(_.find(pasado ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
                 if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
-                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
+//                    console.log(ficha2.tipo, ficha2.x, ficha2.y);
                     // Mirar si en la ficha hay un caballero
                     caballero = _.find(ficha2.seguidores,function(obj){return (obj.t=="Caballero")});
                     // Si hay caballero y esa ficha no esta en la lista de seguidores
                     if (caballero && (_.find(seguidorCa ,function(obj){return (obj.f == ficha2)}) == undefined)){
                         seguidorCa.push(caballero);
-                        console.log("seguidorCa: ", seguidorCa);
+//                        console.log("seguidorCa: ", seguidorCa);
                     }
                     pasado.push({x:ficha2.x, y:ficha2.y});
                     return f_unlado(ficha, puntos, seguidorCa)}
@@ -401,7 +401,7 @@ Tablero.cierraCastillo = function(ficha, flag){
 
     // Cuando tenemos dos cierra castillos, primero ir a un lado y luego al otro
     if (ficha.tipo == 'Ciudad1ll' || ficha.tipo == 'Ciudadext'){
-        console.log(ficha.tipo, ficha.x, ficha.y);
+//        console.log(ficha.tipo, ficha.x, ficha.y);
         if (ficha.arriba == 'Tierra'){
             seguidor1 = [];
             // Mirar si en la ficha hay un caballero
@@ -409,7 +409,7 @@ Tablero.cierraCastillo = function(ficha, flag){
             // Si hay caballero y esa ficha no esta en la lista de seguidores
             if (caballero && (_.find(seguidor1 ,function(obj){return (obj.f == ficha)}) == undefined)){
                 seguidor1.push(caballero);
-                console.log("seguidor: ", seguidor1);
+//                console.log("seguidor: ", seguidor1);
             }
             // ficha2 es la siguiente ficha
             ficha2 = Tablero.buscarxcoor(ficha.x, ficha.y-1);
@@ -420,7 +420,7 @@ Tablero.cierraCastillo = function(ficha, flag){
                 // Si hay caballero y esa ficha no esta en la lista de seguidores
                 if (caballero && (_.find(seguidor1 ,function(obj){return (obj.f == ficha2)}) == undefined)){
                     seguidor1.push(caballero);
-                    console.log("seguidor: ", seguidor1);
+//                    console.log("seguidor: ", seguidor1);
                 }
                 final1 = [true, 2];
             }
@@ -437,7 +437,7 @@ Tablero.cierraCastillo = function(ficha, flag){
             // Si hay caballero y esa ficha no esta en la lista de seguidores
             if (caballero && (_.find(seguidor2 ,function(obj){return (obj.f == ficha)}) == undefined)){
                 seguidor2.push(caballero);
-                console.log("seguidor: ", seguidor2);
+//                console.log("seguidor: ", seguidor2);
             }
             ficha2 = Tablero.buscarxcoor(ficha.x, ficha.y+1);
             if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
@@ -446,7 +446,7 @@ Tablero.cierraCastillo = function(ficha, flag){
                 // Si hay caballero y esa ficha no esta en la lista de seguidores
                 if (caballero && (_.find(seguidor2 ,function(obj){return (obj.f == ficha2)}) == undefined)){
                     seguidor2.push(caballero);
-                    console.log("seguidor: ", seguidor2);
+//                    console.log("seguidor: ", seguidor2);
                 }
                 final2 = [true, 2];
             }
@@ -462,7 +462,7 @@ Tablero.cierraCastillo = function(ficha, flag){
             // Si hay caballero y esa ficha no esta en la lista de seguidores
             if (caballero && (_.find(seguidor2 ,function(obj){return (obj.f == ficha)}) == undefined)){
                 seguidor2.push(caballero);
-                console.log("seguidor: ", seguidor2);
+//                console.log("seguidor: ", seguidor2);
             }
             ficha2 = Tablero.buscarxcoor(ficha.x-1, ficha.y);
             if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
@@ -471,7 +471,7 @@ Tablero.cierraCastillo = function(ficha, flag){
                 // Si hay caballero y esa ficha no esta en la lista de seguidores
                 if (caballero && (_.find(seguidor2 ,function(obj){return (obj.f == ficha2)}) == undefined)){
                     seguidor2.push(caballero);
-                    console.log("seguidor: ", seguidor2);
+//                    console.log("seguidor: ", seguidor2);
                 }
                 final2 = [true, 2];
             }
@@ -487,7 +487,7 @@ Tablero.cierraCastillo = function(ficha, flag){
             // Si hay caballero y esa ficha no esta en la lista de seguidores
             if (caballero && (_.find(seguidor1 ,function(obj){return (obj.f == ficha)}) == undefined)){
                 seguidor1.push(caballero);
-                console.log("seguidor: ", seguidor1);
+//                console.log("seguidor: ", seguidor1);
             }
             ficha2 = Tablero.buscarxcoor(ficha.x+1, ficha.y);
             if (ficha2.lleno && unlado.indexOf(ficha2.tipo) != -1){
@@ -496,7 +496,7 @@ Tablero.cierraCastillo = function(ficha, flag){
                 // Si hay caballero y esa ficha no esta en la lista de seguidores
                 if (caballero && (_.find(seguidor1 ,function(obj){return (obj.f == ficha2)}) == undefined)){
                     seguidor1.push(caballero);
-                    console.log("seguidor: ", seguidor1);
+//                    console.log("seguidor: ", seguidor1);
                 }
                 final1 = [true, 2];
             }

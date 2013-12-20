@@ -505,14 +505,18 @@ $(function() {
   console.log(ColocarFicha(12,robar[0],{x:6,y:5},3));
 */
 	Tablero.iniciar();
+        Tablero.listaJugadores.push(new ObjetoJugador(124,"Paco","14/11/1991"));
+        Tablero.listaJugadores.push(new ObjetoJugador(125,"Juan","15/11/1991"));
+        Tablero.listaJugadores.push(new ObjetoJugador(126,"Pepe","16/11/1991"));
+        Tablero.listaJugadores.push(new ObjetoJugador(127,"Rudolf","17/11/1991"));
 		var nuevaficha = new ObjetoFicha(0,0,0,"Posada");
  	  Tablero.colocarficha(nuevaficha,2,2);
 		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
 		x = Tablero.colocarficha(nuevaficha,2,3); 
-		x.seguidores.push({t:"Granjero",n:0,j:2,f:x});  //le metemos granjero
+		x.seguidores.push({t:"Granjero",n:6,j:2,f:x});  //le metemos granjero
 		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
 		x = Tablero.colocarficha(nuevaficha,2,4); 
-		x.seguidores.push({t:"Granjero",n:0,j:2,f:x});  //le metemos granjero
+		x.seguidores.push({t:"Granjero",n:6,j:1,f:x});  //le metemos granjero
 		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
     nuevaficha.girar();
     nuevaficha.girar();
@@ -549,11 +553,12 @@ $(function() {
  	  Tablero.colocarficha(nuevaficha,7,3);			
 		var nuevaficha = new ObjetoFicha(0,0,0,"Catedral");
  	  var x=Tablero.colocarficha(nuevaficha,3,4);
+		x.seguidores.push({t:"Granjero",n:0,j:3,f:x});  //le metemos granjero
 		var nuevaficha = new ObjetoFicha(0,0,0,"Catedral");
  	  var x=Tablero.colocarficha(nuevaficha,5,4);
 		x.seguidores.push({t:"Granjero",n:0,j:2,f:x});  //le metemos granjero
-		console.log(puntosGranja(nuevaficha));	
-
+		puntosGranja(nuevaficha,2);	
+		console.log(puntosGranja(nuevaficha));
 
 });
 
