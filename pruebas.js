@@ -521,7 +521,7 @@ $(function() {
     nuevaficha.girar();
     nuevaficha.girar();
     nuevaficha.girar();
- 	  Tablero.colocarficha(nuevaficha,2,2);
+ 	  Tablero.colocarficha(nuevaficha,2,5);
 		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
     nuevaficha.girar();
  	  Tablero.colocarficha(nuevaficha,3,1);
@@ -560,6 +560,68 @@ $(function() {
 		puntosGranja(nuevaficha,2);	
 		console.log(puntosGranja(nuevaficha));
 
+
+//Nueva granja para pruebas
+	Tablero.iniciar();
+        Tablero.listaJugadores.push(new ObjetoJugador(124,"Paco","14/11/1991"));
+        Tablero.listaJugadores.push(new ObjetoJugador(125,"Juan","15/11/1991"));
+        Tablero.listaJugadores.push(new ObjetoJugador(126,"Pepe","16/11/1991"));
+        Tablero.listaJugadores.push(new ObjetoJugador(127,"Rudolf","17/11/1991"));
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
+		nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,2,2);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
+		x = Tablero.colocarficha(nuevaficha,2,3); 
+		x.seguidores.push({t:"Granjero",n:6,j:2,f:x});  //le metemos granjero
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
+		x = Tablero.colocarficha(nuevaficha,2,4); 
+		x.seguidores.push({t:"Granjero",n:6,j:1,f:x});  //le metemos granjero
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
+    nuevaficha.girar();
+    nuevaficha.girar();
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,2,5);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,3,2);	
+		var nuevaficha = new ObjetoFicha(0,0,0,"Catedral");
+ 	  Tablero.colocarficha(nuevaficha,3,3);		
+		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
+    nuevaficha.girar();
+    nuevaficha.girar();
+		nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,3,4);	
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
+		nuevaficha.girar();
+ 	  x = Tablero.colocarficha(nuevaficha,3,5);
+		x.seguidores.push({t:"Granjero",n:0,j:1,f:x});  //le metemos granjero
+		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l2crect");
+ 	  Tablero.colocarficha(nuevaficha,4,5);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad2lc");
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,4,4);	
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
+ 	  Tablero.colocarficha(nuevaficha,4,3);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
+ 	  Tablero.colocarficha(nuevaficha,4,2);			
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rrecta");
+ 	  var x=Tablero.colocarficha(nuevaficha,5,2);
+		x.seguidores.push({t:"Granjero",n:7,j:2,f:x});  //le metemos granjero
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
+    nuevaficha.girar();
+    nuevaficha.girar();
+ 	  Tablero.colocarficha(nuevaficha,5,3);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
+ 	  Tablero.colocarficha(nuevaficha,5,4);
+		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
+    nuevaficha.girar();
+    nuevaficha.girar();
+    nuevaficha.girar();
+ 	  var x = Tablero.colocarficha(nuevaficha,5,5);	
+		x.seguidores.push({t:"Granjero",n:7,j:3,f:x});  //le metemos granjero
+
+		puntosGranja(nuevaficha,2);	
+		console.log(puntosGranja(nuevaficha));
 });
 
 

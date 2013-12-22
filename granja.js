@@ -206,14 +206,24 @@ puntosGranja = function(ficha,flag){
 
 				if (ficha2.lleno && _.find(fichas ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
 					if (ficha2.arriba == "Rue" && ficha2.abajo == "Rue"){
-						if (ficha.izda == "Rue"){prohibido== "izda"}
-						if (ficha.derecha == "Rue"){prohibido== "derecha"}
-						if (prohibido== "izda" && (granjero.n == 1 || granjero.n == 2 || granjero.n == 3)){granjeros.push(granjero);
-							granja(ficha2,prohibido);
-						}else if (prohibido== "derecha" && (granjero.n == 5 || granjero.n == 6 || granjero.n == 7)){granjeros.push(granjero);
-							granja(ficha2,prohibido);
-						}else if(!_.find(granjeros,function(obj){return (obj.f==granjero.f)})){granjeros.push(granjero);
+						if (ficha.izda == "Rue"){prohibido= "izda"}
+						if (ficha.derecha == "Rue"){prohibido= "derecha";}
+						if (prohibido== "izda"){
+							if (granjero != undefined){
+									if (granjero.n == 1 || granjero.n == 2 || granjero.n == 3){granjeros.push(granjero);}
+							}
+									granja(ficha2,prohibido);
+
+						}else if (prohibido== "derecha"){
+							if (granjero != undefined){
+									if (granjero.n == 5 || granjero.n == 6 || granjero.n == 7){granjeros.push(granjero);}
+							}
+									granja(ficha2,prohibido);	
+
+						}else if (granjero != undefined){
+								if(!_.find(granjeros,function(obj){return (obj.f==granjero.f)})){granjeros.push(granjero);}
 								granja(ficha2,prohibido);
+								
 						}
 					}
 				}
@@ -225,14 +235,22 @@ puntosGranja = function(ficha,flag){
 
 				if (ficha2.lleno && _.find(fichas ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
 					if (ficha2.arriba == "Rue" && ficha2.abajo == "Rue"){
-							if (ficha.arriba == "Rue"){prohibido== "arriba"}
-							if (ficha.abajo == "Rue"){prohibido== "abajo"}
-							if (prohibido== "arriba" && (granjero.n == 3 || granjero.n == 4 || granjero.n == 5)){granjeros.push(granjero);
+							if (ficha.arriba == "Rue"){prohibido= "arriba"}
+							if (ficha.abajo == "Rue"){prohibido= "abajo"}
+							if (prohibido== "arriba"){
+								if (granjero != undefined){
+										if(granjero.n == 3 || granjero.n == 4 || granjero.n == 5){granjeros.push(granjero);}
+								}
+										granja(ficha2,prohibido);
+							}else if (prohibido== "abajo"){
+								if (granjero != undefined){
+								}
+									if (granjero.n == 7 || granjero.n == 0 || granjero.n == 1){granjeros.push(granjero);}
 								granja(ficha2,prohibido);
-							}else if (prohibido== "abajo" && (granjero.n == 7 || granjero.n == 0 || granjero.n == 1)){granjeros.push(granjero);
-								granja(ficha2,prohibido);
-							}else if(!_.find(granjeros,function(obj){return (obj.f==granjero.f)})){granjeros.push(granjero);
-								granja(ficha2,prohibido);
+							}else if (granjero != undefined){
+									if(!_.find(granjeros,function(obj){return (obj.f==granjero.f)})){granjeros.push(granjero);}
+										granja(ficha2,prohibido);
+									
 							}
 					}						
 				}
@@ -244,14 +262,23 @@ puntosGranja = function(ficha,flag){
 
 				if (ficha2.lleno && _.find(fichas ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
 					if (ficha2.arriba == "Rue" && ficha2.abajo == "Rue"){
-							if (ficha.arriba == "Rue"){prohibido== "arriba"}
-							if (ficha.abajo == "Rue"){prohibido== "abajo"}							
-							if (prohibido== "arriba" && (granjero.n == 3 || granjero.n == 4 || granjero.n == 5)){granjeros.push(granjero);
+							if (ficha.arriba == "Rue"){prohibido= "arriba"}
+							if (ficha.abajo == "Rue"){prohibido= "abajo"}							
+							if (prohibido== "arriba"){
+								if (granjero != undefined){
+										if (granjero.n == 3 || granjero.n == 4 || granjero.n == 5){granjeros.push(granjero);}
+								}	
 								granja(ficha2,prohibido);
-							}else if (prohibido== "abajo" && (granjero.n == 7 || granjero.n == 0 || granjero.n == 1)){granjeros.push(granjero);
+	
+							}else if (prohibido== "abajo"){
+								if (granjero != undefined){
+									if (granjero.n == 7 || granjero.n == 0 || granjero.n == 1){granjeros.push(granjero);}
+								}
 								granja(ficha2,prohibido);
-							}else if(!_.find(granjeros,function(obj){return (obj.f==granjero.f)})){granjeros.push(granjero);
-								granja(ficha2,prohibido);
+							}else if (granjero != undefined){
+									if(!_.find(granjeros,function(obj){return (obj.f==granjero.f)})){granjeros.push(granjero);}
+										granja(ficha2,prohibido);
+									
 							}					
 					}
 				}
@@ -263,14 +290,22 @@ puntosGranja = function(ficha,flag){
 
 				if (ficha2.lleno && _.find(fichas ,function(obj){return (obj.x == ficha2.x && obj.y == ficha2.y)}) == undefined){
 					if (ficha2.arriba == "Rue" && ficha2.abajo == "Rue"){
-						if (ficha.izda == "Rue"){prohibido== "izda"}
-						if (ficha.derecha == "Rue"){prohibido== "derecha"}
-						if (prohibido== "izda" && (granjero.n == 1 || granjero.n == 2 || granjero.n == 3)){granjeros.push(granjero);
+						if (ficha.izda == "Rue"){prohibido= "izda"}
+						if (ficha.derecha == "Rue"){prohibido= "derecha"}
+						if (prohibido== "izda"){
+							if (granjero != undefined){
+									if (granjero.n == 1 || granjero.n == 2 || granjero.n == 3){granjeros.push(granjero);}
+							}
 							granja(ficha2,prohibido);						
-						}else if (prohibido== "derecha" && (granjero.n == 5 || granjero.n == 6 || granjero.n == 7)){granjeros.push(granjero);
+						}else if (prohibido== "derecha"){
+							if (granjero != undefined){
+									if (granjero.n == 5 || granjero.n == 6 || granjero.n == 7){granjeros.push(granjero);}
+							}
 							granja(ficha2,prohibido);
-						}else if(!_.find(granjeros,function(obj){return (obj.f==granjero.f)})){granjeros.push(granjero);
-								granja(ficha2,prohibido);
+						}else if (granjero != undefined){
+								if(!_.find(granjeros,function(obj){return (obj.f==granjero.f)})){granjeros.push(granjero);}
+									granja(ficha2,prohibido);
+								
 						}
 					}
 				}		
