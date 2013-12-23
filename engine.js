@@ -223,7 +223,8 @@ var Tablero = new function(){
 				else if (fichatierra.lleno){tienecab3 = Tablero.cierraCastillo(fichatierra);}
 				else if (!fichatierra.lleno){tienecab3 =[false,false]}
 
-		for (i=0;i<=8;i++){
+		for (var i=0;i<=8;i++){
+
 			if (i==0){
 				
 				if(ficha.arriba == "Rue" ){
@@ -246,16 +247,18 @@ var Tablero = new function(){
 					}
 							
 				}else if(ficha.arriba == "Campo"){
-					seguidor.push({t:"Granjero",n:i});
+					tienegranj = puntosGranja(ficha,0,0);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}
 				}
 			}
 			if (i==1){
+
 				if(ficha.arriba == "Rue" && ficha.derecha == "Rue"){
-					seguidor.push({t:"Granjero",n:i});					
+					tienegranj = puntosGranja(ficha,0,1);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}				
 				}else if(ficha.arriba == "Tierra" && ficha.derecha == "Rue"){
-					seguidor.push({t:"Granjero",n:i});			
-				}else if(ficha.arriba == "Tierra" && ficha.derecha == "Campo"){
-					seguidor.push({t:"Granjero",n:i});	
+					tienegranj = puntosGranja(ficha,0,1);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}				
 				}
 			}
 			if (i==2){
@@ -278,14 +281,17 @@ var Tablero = new function(){
 						}			
 					}	
 				}else if(ficha.derecha == "Campo"){
-					seguidor.push({t:"Granjero",n:i});
+					tienegranj = puntosGranja(ficha,0,2);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}	
 				}
 			}
 			if (i==3){
 				if(ficha.derecha == "Rue"){
-					seguidor.push({t:"Granjero",n:i});					
+					tienegranj = puntosGranja(ficha,0,3);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}					
 				}else if(ficha.derecha == "Tierra" && ficha.abajo == "Rue"){
-					seguidor.push({t:"Granjero",n:i});			
+					tienegranj = puntosGranja(ficha,0,3);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}
 				}
 			}
 			if (i==4){
@@ -307,12 +313,17 @@ var Tablero = new function(){
 						}			
 					}								
 				}else if(ficha.abajo == "Campo"){
-					seguidor.push({t:"Granjero",n:i});
+					tienegranj = puntosGranja(ficha,0,4);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}	
 				}
 			}
 			if (i==5){
 				if(ficha.abajo == "Rue"){
-					seguidor.push({t:"Granjero",n:i});						
+					tienegranj = puntosGranja(ficha,0,5);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}	
+				}else if(ficha.abajo == "Tierra" && ficha.izda == "Rue"){
+					tienegranj = puntosGranja(ficha,0,5);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}		
 				}
 			}
 			if (i==6){
@@ -334,12 +345,17 @@ var Tablero = new function(){
 						}			
 					}		
 				}else if(ficha.izda == "Campo"){
-					seguidor.push({t:"Granjero",n:i});
+					tienegranj = puntosGranja(ficha,0,6);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}
 				}
 			}
 			if (i==7){
 				if(ficha.izda == "Rue"){
-					seguidor.push({t:"Granjero",n:i});						
+					tienegranj = puntosGranja(ficha,0,7);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}					
+				}else if(ficha.izda == "Tierra" && ficha.arriba == "Rue"){
+					tienegranj = puntosGranja(ficha,0,7);
+					if (tienegranj == false){seguidor.push({t:"Granjero",n:i});}		
 				}
 			}
 			if (i==8){

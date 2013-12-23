@@ -422,7 +422,7 @@ $(function() {
  
  /// Prueba del código de game.js
  
- 
+ /*
  var InicioJuego=function(){       
 
        Tablero.iniciar();
@@ -430,7 +430,7 @@ $(function() {
 	     /*
 	      Meteor.subscribe("partidas",id_partida);
 	      Jugadores= Partidas.find();
-        */
+        
         //creamos la lista de jugadores
         Tablero.listaJugadores.push(new ObjetoJugador(123,"Paco","14/11/1991"));
 	console.log('ll',Tablero.listaJugadores);
@@ -497,7 +497,7 @@ $(function() {
   
   console.log(ColocarSeguidor(12,123, {x:5,y:5}, lista[0]));
   
-  
+  */
   
 
 /* var robar= Robar();
@@ -585,7 +585,8 @@ $(function() {
     nuevaficha.girar();
  	  Tablero.colocarficha(nuevaficha,3,2);	
 		var nuevaficha = new ObjetoFicha(0,0,0,"Catedral");
- 	  Tablero.colocarficha(nuevaficha,3,3);		
+ 	  x = Tablero.colocarficha(nuevaficha,3,3);
+		x.seguidores.push({t:"Granjero",n:0,j:1,f:x});  //le metemos granjero		
 		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l");
     nuevaficha.girar();
     nuevaficha.girar();
@@ -594,6 +595,7 @@ $(function() {
 		var nuevaficha = new ObjetoFicha(0,0,0,"Rcurva");
 		nuevaficha.girar();
  	  x = Tablero.colocarficha(nuevaficha,3,5);
+		console.log("lista campo con granjero: ", Tablero.colocarseguidor(nuevaficha)); // miramos si hay granjero en la zona
 		x.seguidores.push({t:"Granjero",n:0,j:1,f:x});  //le metemos granjero
 		var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1l2crect");
  	  Tablero.colocarficha(nuevaficha,4,5);
