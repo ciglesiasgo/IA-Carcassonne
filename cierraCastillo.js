@@ -103,6 +103,12 @@ Tablero.cierraCastillo = function(ficha, flag){
 //                console.log("jugador: ", Tablero.listaJugadores[num].nombre, Tablero.listaJugadores[num].puntos);
             }
         }
+//Borrar granjeros de la zona.
+				_.each(seguidor, function(seg){
+             	  var pos = seg.f.seguidores.indexOf( seg );
+	 	        	  pos > -1 && seg.f.seguidores.splice( pos, 1 );           
+	      });
+///
     }
 
     // Funcion cuando es solo un lado

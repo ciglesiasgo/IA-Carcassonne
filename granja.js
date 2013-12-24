@@ -60,6 +60,7 @@ puntosGranja = function(ficha,flag,posgranjero){
                 return devolver;
                 
             }
+
             num = mayor();
             if (num == undefined){break}
             else{
@@ -71,6 +72,12 @@ puntosGranja = function(ficha,flag,posgranjero){
                 console.log("jugador: ", Tablero.listaJugadores[num].nombre, Tablero.listaJugadores[num].puntos);
             }
         }
+//Borrar granjeros de la zona.
+				_.each(granjeros, function(seg){
+             	  var pos = seg.f.seguidores.indexOf( seg );
+	 	        	  pos > -1 && seg.f.seguidores.splice( pos, 1 );           
+	      });
+///
     }
 
 		var granja = function(ficha,prohibido){
@@ -340,6 +347,7 @@ puntosGranja = function(ficha,flag,posgranjero){
 			if (flag==2){
 				puntos = ciudad*3;
 				sumarPuntos(granjeros,puntos);	
+
 			}else{
 				num_granjeros = granjeros.length;
 
