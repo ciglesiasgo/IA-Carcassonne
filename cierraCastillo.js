@@ -2,7 +2,7 @@
 
 
 
-Tablero.cierraCastillo = function(ficha, flag){
+cierraCastillo = function(ficha, flag){
     var unlado = [
         'Ciudad1l2crect', 
         'Ciudadcurvder', 
@@ -511,15 +511,18 @@ Tablero.cierraCastillo = function(ficha, flag){
                 final1[1]--;
             }
         }
-
-        if (((flag == 1) && (final1[0] == true)) || (flag == 2))
-            if (flag == 2)
-                final1[1] = final1[3];
-            sumarPuntos(seguidor1, final1[1]);
-        if (((flag == 1) && (final2[0] == true)) || (flag == 2))
-            if (flag == 2)
-                final2[1] = final2[3];
-            sumarPuntos(seguidor2, final2[1]);
+        if (final1 != undefined){
+                if (((flag == 1) && (final1[0] == true)) || (flag == 2))
+                    if (flag == 2)
+                        final1[1] = final1[3];
+                    sumarPuntos(seguidor1, final1[1]);
+        }
+        if (final2 != undefined){
+                if (((flag == 1) && (final2[0] == true)) || (flag == 2))
+                    if (flag == 2)
+                        final2[1] = final2[3];
+                    sumarPuntos(seguidor2, final2[1]);
+        }
         // Si hay caballero en el lado [arriba o derecha]
         if (seguidor1.length > 0)
             final1[1] = true;

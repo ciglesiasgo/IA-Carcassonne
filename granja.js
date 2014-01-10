@@ -174,7 +174,7 @@ puntosGranja = function(ficha,flag,posgranjero){
 //TIERRA
 			if (ficha.arriba == "Tierra" && prohibido != "arriba"){
 				if(_.find(fichasciudad ,function(obj){return (obj.x == ficha.x && obj.y == ficha.y)}) == undefined){
-					fichastierra = Tablero.cierraCastillo(ficha);			
+					fichastierra = cierraCastillo(ficha);			
 					fichasciudad = fichasciudad.concat(fichastierra[2]);
 					if (fichastierra[0]== true){ciudad++}
 				}	
@@ -182,7 +182,7 @@ puntosGranja = function(ficha,flag,posgranjero){
 
 			if (ficha.izda == "Tierra" && prohibido != "izda"){
 				if(_.find(fichasciudad ,function(obj){return (obj.x == ficha.x && obj.y == ficha.y)}) == undefined){
-					fichastierra = Tablero.cierraCastillo(ficha);		
+					fichastierra = cierraCastillo(ficha);		
 					fichasciudad = fichasciudad.concat(fichastierra[2]);
 					if (fichastierra[0]== true){ciudad++}
 				}
@@ -190,7 +190,7 @@ puntosGranja = function(ficha,flag,posgranjero){
 
 			if (ficha.derecha == "Tierra" && prohibido != "derecha"){
 				if(_.find(fichasciudad ,function(obj){return (obj.x == ficha.x && obj.y == ficha.y)}) == undefined){
-					fichastierra = Tablero.cierraCastillo(ficha);			
+					fichastierra = cierraCastillo(ficha);			
 					fichasciudad = fichasciudad.concat(fichastierra[2]);
 					if (fichastierra[0]== true){ciudad++}
 				}
@@ -198,7 +198,7 @@ puntosGranja = function(ficha,flag,posgranjero){
 
 			if(ficha.abajo == "Tierra" && prohibido != "abajo"){
 				if(_.find(fichasciudad ,function(obj){return (obj.x == ficha.x && obj.y == ficha.y)}) == undefined){
-					fichastierra = Tablero.cierraCastillo(ficha);	
+					fichastierra = cierraCastillo(ficha);	
 					fichasciudad = fichasciudad.concat(fichastierra[2]);
 					if (fichastierra[0]== true){ciudad++}
 				}

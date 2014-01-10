@@ -1,4 +1,4 @@
-var Tiposfichas = {
+Tiposfichas = {
     Rrecta: { Izq: "Campo", Der: "Campo", Arr: "Rue", Abaj: "Rue", Escudo: 0 }, //8
     Rcurva: {Izq: "Rue", Der: "Campo", Arr: "Campo", Abaj: "Rue", Escudo: 0 }, //9
     Catedral: { Izq: "Campo", Der: "Campo", Arr: "Campo", Abaj: "Campo", Escudo: 0 }, //4
@@ -25,20 +25,20 @@ var Tiposfichas = {
 		Tcruce:   {Izq: "Rue", Der: "Rue", Arr: "Campo", Abaj: "Rue", Escudo: 0},//4
 };
 
-var fichas = [ //72
+fichas = [ //72
 		  'Rrecta', 'Rcurva', 'Catedral',  'Posada', 'Ccruce', 'CiudadE', 'Ciudad3lc', 'Ciudad3lcE', 'Ciudad3l', 'Ciudad3lE', 'Ciudad2lc', 'Ciudad2lcE', 'Ciudad2l', 'Ciudad2lE', 'CiudadPuerta', 'CiudadPuertaE', 'Ciudadext', 'Ciudad1l2crect', 'Ciudadcurvder', 'Ciudadcurvizq','Ciudad1lcruce', 'Ciudad1ll', 'Ciudad1l', 'Tcruce',
 ];
 
-var Tablero = new function(){
+Tablero = new function(){
 
-	this.totalFichas = 72;
-
-	this.n_fichas = { //72 
-			Rrecta: 8, Rcurva: 9, Catedral: 4, Posada: 2, Ccruce : 1, CiudadE: 1, Ciudad3lc: 1, Ciudad3lcE: 2, Ciudad3l:  3, Ciudad3lE: 1, Ciudad2lc: 3, Ciudad2lcE:  2, Ciudad2l: 3, Ciudad2lE: 2, CiudadPuerta: 1, CiudadPuertaE: 2, Ciudadext: 3, Ciudad1l2crect: 4, Ciudadcurvder: 3, Ciudadcurvizq:3, Ciudad1lcruce: 3, Ciudad1ll: 2,  Ciudad1l: 5, Tcruce: 4,
-	};
 
 	this.iniciar = function(){
+	  console.log("LLAMAMOS A INICIAR");
+    this.totalFichas = 72;
 
+	  this.n_fichas = { //72 
+			Rrecta: 8, Rcurva: 9, Catedral: 4, Posada: 2, Ccruce : 1, CiudadE: 1, Ciudad3lc: 1, Ciudad3lcE: 2, Ciudad3l:  3, Ciudad3lE: 1, Ciudad2lc: 3, Ciudad2lcE:  2, Ciudad2l: 3, Ciudad2lE: 2, CiudadPuerta: 1, CiudadPuertaE: 2, Ciudadext: 3, Ciudad1l2crect: 4, Ciudadcurvder: 3, Ciudadcurvizq:3, Ciudad1lcruce: 3, Ciudad1ll: 2,  Ciudad1l: 5, Tcruce: 4,
+	};
 	  this.huecos=[];
     this.candidatos=[];
     this.listaJugadores=[];
@@ -184,43 +184,43 @@ var Tablero = new function(){
 // CAMINOS.
 				fichacamsig=Tablero.buscarxcoor(ficha.x,ficha.y-1); // ARRIBA
 				if (fichacamsig == undefined){tieneladron0 =[false,false]}
-				else if (fichacamsig.lleno){tieneladron0 = Tablero.cierraCamino(fichacamsig);}
+				else if (fichacamsig.lleno){tieneladron0 = cierraCamino(fichacamsig,0,"abajo");}
 				else if (!fichacamsig.lleno){tieneladron0 =[false,false]}
 
 				fichacamsig=Tablero.buscarxcoor(ficha.x+1,ficha.y); // DERECHA
 				if (fichacamsig == undefined){tieneladron1 =[false,false]}
-				else if (fichacamsig.lleno){tieneladron1 = Tablero.cierraCamino(fichacamsig);}
+				else if (fichacamsig.lleno){tieneladron1 = cierraCamino(fichacamsig,0,"izquierda");}
 				else if (!fichacamsig.lleno){tieneladron1 =[false,false]}
 
 				fichacamsig=Tablero.buscarxcoor(ficha.x,ficha.y+1);//ABAJO
 				if (fichacamsig == undefined){tieneladron2 =[false,false]} 
-				else if (fichacamsig.lleno){tieneladron2 = Tablero.cierraCamino(fichacamsig);}
+				else if (fichacamsig.lleno){tieneladron2 = cierraCamino(fichacamsig,0,"arriba");}
 				else if (!fichacamsig.lleno){tieneladron2 =[false,false]}
 
 				fichacamsig=Tablero.buscarxcoor(ficha.x-1,ficha.y);	//IZQUIERDA
 				if (fichacamsig == undefined){tieneladron3 =[false,false]} 
-				else if (fichacamsig.lleno){tieneladron3 = Tablero.cierraCamino(fichacamsig);}
+				else if (fichacamsig.lleno){tieneladron3 = cierraCamino(fichacamsig,0,"derecha");}
 				else if (!fichacamsig.lleno){tieneladron3 =[false,false]}
 
 //CIUDADES.
 				fichatierra=Tablero.buscarxcoor(ficha.x,ficha.y-1); // ARRIBA		
 				if (fichatierra == undefined){tienecab0 =[false,false]}
-				else if (fichatierra.lleno){tienecab0 = Tablero.cierraCastillo(fichatierra);}
+				else if (fichatierra.lleno){tienecab0 = cierraCastillo(fichatierra);}
 				else if (!fichatierra.lleno){tienecab0 =[false,false]}
 
 				fichatierra=Tablero.buscarxcoor(ficha.x+1,ficha.y); // DERECHA
 				if (fichatierra == undefined){tienecab1 =[false,false]}
-				else if (fichatierra.lleno){tienecab1 = Tablero.cierraCastillo(fichatierra);}
+				else if (fichatierra.lleno){tienecab1 = cierraCastillo(fichatierra);}
 				else if (!fichatierra.lleno){tienecab1 =[false,false]}
 
 				fichatierra=Tablero.buscarxcoor(ficha.x,ficha.y+1);//ABAJO
 				if (fichatierra == undefined){tienecab2 =[false,false]} 
-				else if (fichatierra.lleno){tienecab2 = Tablero.cierraCastillo(fichatierra);}
+				else if (fichatierra.lleno){tienecab2 = cierraCastillo(fichatierra);}
 				else if (!fichatierra.lleno){tienecab2 =[false,false]}
 
 				fichatierra=Tablero.buscarxcoor(ficha.x-1,ficha.y);	//IZQUIERDA
 				if (fichatierra == undefined){tienecab3 =[false,false]} 
-				else if (fichatierra.lleno){tienecab3 = Tablero.cierraCastillo(fichatierra);}
+				else if (fichatierra.lleno){tienecab3 = cierraCastillo(fichatierra);}
 				else if (!fichatierra.lleno){tienecab3 =[false,false]}
 
 		for (var i=0;i<=8;i++){
@@ -379,24 +379,24 @@ var Tablero = new function(){
 
 };
 
-var ObjetoJugador = function(user_id,nombre,fecha,n_jugador){
+ObjetoJugador = function(user_id,nombre,fecha,n_jugador){
   this.numero=n_jugador;
   this.n_seguidores = 7;
 	this.nombre = nombre;
 	this.id=user_id;
-	this.edad = function(fecha){
+	this.edad = fecha;/*function(fecha){
 									var dia= fecha.split('/');
 									var birthday = +new Date(dia[2],dia[1],dia[0]);
 									console.log("ccc",birthday);
 									return ~~((Date.now() - birthday) / (31557600000)); // 24*3600*365.25*1000
-	}(fecha);
+	}(fecha);*/
 	this.puntos = 0;
 	
 };
 
 
 
-var ObjetoFicha= function(x,y,i,tipoficha){
+ObjetoFicha= function(x,y,i,tipoficha){
 
   this.i=i; //nos indica la posición real en la lista tablero
 	this.x=x; // x e y nos indican la posición 

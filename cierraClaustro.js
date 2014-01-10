@@ -2,7 +2,7 @@
 // Comprueba si tenemos un monje y si esta rodeado un claustro.
 
 
-Tablero.cierraClaustro = function(ficha,flag){
+cierraClaustro = function(ficha,flag){
 		var puntos = 0;
 		var monje;
 

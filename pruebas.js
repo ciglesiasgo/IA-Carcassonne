@@ -503,7 +503,7 @@ $(function() {
 /* var robar= Robar();
   console.log(robar);
   console.log(ColocarFicha(12,robar[0],{x:6,y:5},3));
-*/
+
 	Tablero.iniciar();
         Tablero.listaJugadores.push(new ObjetoJugador(124,"Paco","14/11/1991"));
         Tablero.listaJugadores.push(new ObjetoJugador(125,"Juan","15/11/1991"));
@@ -624,6 +624,22 @@ $(function() {
 
 		puntosGranja(nuevaficha,2);	
 		console.log(puntosGranja(nuevaficha));
+*/
+	Tablero.iniciar();
+        Tablero.listaJugadores.push(new ObjetoJugador(124,"Paco","14"));
+        Tablero.listaJugadores.push(new ObjetoJugador(125,"Juan","15"));
+        Tablero.listaJugadores.push(new ObjetoJugador(126,"Pepe","16"));
+        Tablero.listaJugadores.push(new ObjetoJugador(127,"Rudolf","17"));
+        var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1lcruce");
+        Tablero.colocarficha(nuevaficha,5,5);
+        var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1lcruce");
+        nuevaficha.girar();
+    nuevaficha.girar();
+    Tablero.colocarficha(nuevaficha,5,6);
+    
+    console.log("coloca seguidor",Tablero.colocarseguidor(nuevaficha));
+        
+        
 });
 
 
