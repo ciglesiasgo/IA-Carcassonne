@@ -2,11 +2,8 @@
 
 
 
-<<<<<<< HEAD
 cierraCastillo = function(ficha, flag){
-=======
-  this.cierraCastillo = function(ficha, flag){
->>>>>>> 9683cb93ccd375985827cd67211db4733179cf50
+
     var unlado = [
         'Ciudad1l2crect', 
         'Ciudadcurvder', 
@@ -509,33 +506,7 @@ cierraCastillo = function(ficha, flag){
                 final1[1]--;
             }
         }
-<<<<<<< HEAD
-        if (final1 != undefined){
-                if (((flag == 1) && (final1[0] == true)) || (flag == 2))
-                    if (flag == 2)
-                        final1[1] = final1[3];
-                    sumarPuntos(seguidor1, final1[1]);
-        }
-        if (final2 != undefined){
-                if (((flag == 1) && (final2[0] == true)) || (flag == 2))
-                    if (flag == 2)
-                        final2[1] = final2[3];
-                    sumarPuntos(seguidor2, final2[1]);
-        }
-        // Si hay caballero en el lado [arriba o derecha]
-        if (seguidor1.length > 0)
-            final1[1] = true;
-        else
-            final1[1] = false;
-        // Si hay caballero en el lado [abajo o izquierda]
-        if (seguidor2.length > 0)
-            final2[1] = true;
-        else
-            final2[1] = false;
-        final1[2] = pasado;
-        final2[2] = pasado;
-=======
-        console.log()
+
         if (final1 != undefined){
             if (((flag == 1) && (final1[0] == true)) || (flag == 2))
                 if (flag == 2)
@@ -560,7 +531,7 @@ cierraCastillo = function(ficha, flag){
                 final2[1] = false;
             final2[2] = pasado;
         }
->>>>>>> 9683cb93ccd375985827cd67211db4733179cf50
+
         // Final1 [arriba o derecha], Final2 [izquierda o abajo]
         return [final1, final2];
     }
