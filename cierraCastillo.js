@@ -508,10 +508,11 @@ cierraCastillo = function(ficha, flag){
         }
 
         if (final1 != undefined){
-            if (((flag == 1) && (final1[0] == true)) || (flag == 2))
+            if (((flag == 1) && (final1[0] == true)) || (flag == 2)){
                 if (flag == 2)
                     final1[1] = final1[3];
                 sumarPuntos(seguidor1, final1[1]);
+            }
             // Si hay caballero en el lado [arriba o derecha]
             if (seguidor1.length > 0)
                 final1[1] = true;
@@ -520,10 +521,11 @@ cierraCastillo = function(ficha, flag){
             final1[2] = pasado;
         }
         if (final2 != undefined){
-            if (((flag == 1) && (final2[0] == true)) || (flag == 2))
+            if (((flag == 1) && (final2[0] == true)) || (flag == 2)){
                 if (flag == 2)
                     final2[1] = final2[3];
                 sumarPuntos(seguidor2, final2[1]);
+            }
             // Si hay caballero en el lado [abajo o izquierda]
             if (seguidor2.length > 0)
                 final2[1] = true;
@@ -537,11 +539,12 @@ cierraCastillo = function(ficha, flag){
     }
     else if (unlado.indexOf(ficha.tipo) != -1){
         var final = f_unlado(ficha, 0, seguidor);
-        if (((flag == 1) && (final[0] == true)) || (flag == 2))
+        if (((flag == 1) && (final[0] == true)) || (flag == 2)){
             // porque si no es cerrado devuelve [false, caballero, lista, puntos]
             if (flag == 2)
                 final[1] = final[3];
             sumarPuntos(seguidor, final[1]);
+        }
         if (seguidor.length > 0)
             final[1] = true;
         else
