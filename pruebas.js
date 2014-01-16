@@ -624,7 +624,7 @@ $(function() {
 
 		puntosGranja(nuevaficha,2);	
 		console.log(puntosGranja(nuevaficha));
-*/
+
 	Tablero.iniciar();
         Tablero.listaJugadores.push(new ObjetoJugador(124,"Paco","14"));
         Tablero.listaJugadores.push(new ObjetoJugador(125,"Juan","15"));
@@ -639,6 +639,40 @@ $(function() {
     
     console.log("coloca seguidor",Tablero.colocarseguidor(nuevaficha));
         
+  */
+  Tablero = new ObjTablero(1212);
+  Tablero.iniciar();
+  Tablero.listaJugadores.push(new ObjetoJugador(124,"Paco","14"));
+        Tablero.listaJugadores.push(new ObjetoJugador(125,"Juan","15"));
+        Tablero.listaJugadores.push(new ObjetoJugador(126,"Pepe","16"));
+        Tablero.listaJugadores.push(new ObjetoJugador(127,"Rudolf","17"));
+        
+        
+       //les asignamos el orden con el numero de jugador
+		var i=1;
+		_.each(Tablero.listaJugadores, function(jugador){jugador.numero=i; i++}); 
+        
+        
+        
+        
+        
+        var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1lcruce");
+        var y=Tablero.colocarficha(nuevaficha,5,5);
+	      y.seguidores.push({t:"Caballero",n:0,j:2,f:y});  //le metemos Caballero
+	      
+        var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1lcruce");
+        nuevaficha.girar();
+        nuevaficha.girar();
+        ficha=Tablero.colocarficha(nuevaficha,5,6);
+   
+        
+        
+        
+        
+        
+      x=jugadorIA(2);
+      console.log('JUGADORIA',x);
+  
         
 });
 
