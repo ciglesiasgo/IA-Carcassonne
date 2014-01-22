@@ -1,6 +1,25 @@
 //Metodos IA <-> IU
   
+  
+  
+//Variables para los métodos
+//--------------------------
+  
  endTablero={};
+ 
+ Turno=1;
+ Segundo=0;
+ 
+ Reloj:function(){
+    Segundo++;
+    setTimeout("Reloj()",1000);
+ } 
+ 
+ 
+ 
+ 
+ //Métodos
+ //-------
 
  Meteor.methods({
 
@@ -95,6 +114,20 @@
     //Coloca el seguidor en la ficha indicada y suma los correspondientes puntos. Acaba el turno. 
     
     
+    
+    TurnoActual:function(){
+      return [turno:Turno,reloj:Segundo];
+    }
+    
+    
+    CambiaTurno:function(id_partida){
+      Tablero= endTablero[id_partida];
+      Turno++;
+      if (Turno>Tablero.listaJugadores.length){Turno=1};
+      Segundo=0;
+      Reloj();
+      return true;
+    }
 })
 
 
