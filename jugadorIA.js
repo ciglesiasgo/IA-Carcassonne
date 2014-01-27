@@ -31,41 +31,52 @@ jugadorIA=function(nJugador){
         listaPuntos=[]
         for (i in Tablero.listaJugadores){         
           listaPuntos.push(Tablero.listaJugadores[i].puntos);
-          }
+        }
         
         
         
         
           
         // colocamos la ficha para probar si es la mejor jugada.
-        colocado = Tablero.colocarficha(nuevaficha,this.nuevaficha.encajaCon[cont].x,this.nuevaficha.encajaCon[cont].y);
-
-
-        // Comprobamos los puntos conseguidos y los comparamos, si son mejores nos quedaremos con esta jugada
-        
-        cierraCamino(colocado,1);
-        //cierraClaustro(colocado,1);
-        cierraCastillo(colocado,1);       
-        var jugador= _.find(Tablero.listaJugadores,function(obj){return (obj.numero==nJugador)});
-        if (jugador.puntos >= jugada.puntos){
-            jugada={
-              puntos:jugador.puntos,
-              coorx:this.nuevaficha.encajaCon[cont].x,
-              coory:this.nuevaficha.encajaCon[cont].y,
-              giros:ngiros,
+        var colocado = Tablero.colocarficha(nuevaficha,this.nuevaficha.encajaCon[cont].x,this.nuevaficha.encajaCon[cont].y);
+        if (colocado){
+            var seguidores= [];
+          
+            var Jugador = _.find(Tablero.listaJugadores,function(obj){return (obj.numero == nJugador)})
+            if (Jugador.n_seguidores!=0){
+                    seguidores=Tablero.colocarseguidor(colocado);
+                    console.log(seguidores);
             }
-        }
-        
-        
-        
-        // Recuperamos los valores originales. 
-        var encajacon = nuevaficha.encajaCon;
-        this.nuevaficha = new ObjetoFicha(0,0,0,nuevaficha.tipo);
-        nuevaficha.encajaCon=encajacon;  
-        Tablero.huecos = TableroAux.huecos;
-        Tablero.candidatos = TableroAux.candidatos;
-        for (i in Tablero.listaJugadores){  
-          Tablero.listaJugadores[i].puntos=listaPuntos[i];
+
+
+            // Comprobamos los puntos conseguidos y los comparamos, si son mejores nos quedaremos con esta jugada
+            
+            
+            cierraCamino(colocado,1);
+            cierraClaustro(colocado,1);
+            cierraCastillo(colocado,1);       
+            var jugador= _.find(Tablero.listaJugadores,function(obj){return (obj.numero==nJugador)});
+            if (jugador.puntos >= jugada.puntos){
+                jugada={
+                  puntos:jugador.puntos,
+                  coorx:this.nuevaficha.encajaCon[cont].x,
+                  coory:this.nuevaficha.encajaCon[cont].y,
+                  giros:ngiros,
+                }
+            }
+            
+            
+            
+            // Recuperamos los valores originales. 
+            var encajacon = nuevaficha.encajaCon;
+            this.nuevaficha = new ObjetoFicha(0,0,0,nuevaficha.tipo);
+            nuevaficha.encajaCon=encajacon;  
+            Tablero.huecos = TableroAux.huecos;
+            Tablero.candidatos = TableroAux.candidatos;
+            
+            for (i in Tablero.listaJugadores){  
+              Tablero.listaJugadores[i].puntos=listaPuntos[i];
+            }
         }
   }
   
@@ -100,7 +111,7 @@ jugadorIA=function(nJugador){
     }
   } 
 
-
+  jugada.giros--;
   return [nuevaficha, jugada]
 
 
