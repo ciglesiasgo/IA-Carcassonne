@@ -128,6 +128,22 @@
       Reloj();
       return true;
     }
+    
+    
+    
+    JugadorArtificial:funcion(id_partida,n_jugador){
+        var x=jugadorIA(n_jugador);
+        nuevaficha=x[0];         
+        for (var i=0; i<x[1].giros;i++){nuevaficha.girar()}
+        var fichaColocada =Tablero.colocarficha(nuevaficha,x[1].coorx,x[1].coory); 
+        cierraCamino(ficha,1);
+        cierraClaustro(ficha,1);
+        cierraCastillo(ficha,1);
+        
+        return [nuevaficha.tipo,x[1].giros,x[1].coorx,x[1].coory,Tablero.listaJugadores]
+        
+        
+    }
 })
 
 
