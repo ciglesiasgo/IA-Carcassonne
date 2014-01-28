@@ -656,7 +656,7 @@ $(function() {
         
         
         
-        var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1lcruce");
+      /*  var nuevaficha = new ObjetoFicha(0,0,0,"Ciudad1lcruce");
         var y=Tablero.colocarficha(nuevaficha,5,5);
 	      y.seguidores.push({t:"Caballero",n:0,j:2,f:y});  //le metemos Caballero
 	      
@@ -671,9 +671,23 @@ $(function() {
         
         
       x=jugadorIA(2);
-      console.log('JUGADORIA',x);
-  
-        
+      console.log('JUGADORIA',x);*/
+      
+      var nuevaficha = new ObjetoFicha(0,0,0,"Tcruce");
+      console.log(nuevaficha);
+      
+      console.log("antesgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      nuevaficha.girar();
+      console.log("trasgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      console.log(nuevaficha);
+      console.log("antesgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      nuevaficha.girar();
+      console.log("trasgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      console.log(nuevaficha);
+      console.log("antesgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      nuevaficha.girar();
+      console.log("trasgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)  
+      console.log(nuevaficha);
 });
 
 
