@@ -676,17 +676,17 @@ $(function() {
       var nuevaficha = new ObjetoFicha(0,0,0,"Tcruce");
       console.log(nuevaficha);
       
-      console.log("antesgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      console.log("antesgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo,nuevaficha.izda)
       nuevaficha.girar();
-      console.log("trasgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      console.log("trasgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo,nuevaficha.izda)
       console.log(nuevaficha);
-      console.log("antesgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      console.log("antesgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo,nuevaficha.izda)
       nuevaficha.girar();
-      console.log("trasgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      console.log("trasgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo,nuevaficha.izda)
       console.log(nuevaficha);
-      console.log("antesgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)
+      console.log("antesgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo,nuevaficha.izda)
       nuevaficha.girar();
-      console.log("trasgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo=nuevaficha.izda)  
+      console.log("trasgiraaaaaar",nuevaficha.arriba,nuevaficha.derecha,nuevaficha.abajo,nuevaficha.abajo,nuevaficha.izda)  
       console.log(nuevaficha);
 });
 
